@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f7f7f2" />
+    <title>مزرعة المالك | إدارة مزرعة الدواجن</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <section id="login-screen" class="login-screen" aria-labelledby="login-title">
+      <form id="login-form" class="login-card">
+        <img class="brand-mark brand-logo login-brand-mark" src="assets/farm-logo.png" alt="شعار مزرعة المالك" />
+        <div class="eyebrow"><span class="eyebrow-line"></span> تسجيل دخول آمن</div>
+        <h1 id="login-title">أهلًا بيك في مزرعة المالك</h1>
+        <p class="login-intro">سجّل الدخول عشان تتابع بيانات المزرعة وحساباتها.</p>
+        <label class="field"><span>رقم التليفون</span><input type="tel" name="username" inputmode="tel" autocomplete="username" value="01044147246" required /></label>
+        <label class="field"><span>كلمة المرور</span><input type="password" name="password" autocomplete="current-password" required /></label>
+        <button class="button button-primary login-submit" type="submit">تسجيل الدخول</button>
+        <p class="form-message" id="login-message" data-state="idle" role="alert" aria-live="assertive"></p>
+        <div class="login-creator">تم إنشاؤه بواسطة <strong>Eng Belal wahid</strong></div>
+        <div class="login-contact">
+          <span>للتواصل والدعم</span>
+          <a class="contact-phone" href="tel:+201044147246" dir="ltr">01044147246</a>
+          <a class="whatsapp-button" href="https://wa.me/201044147246" target="_blank" rel="noopener noreferrer">
+            <svg class="whatsapp-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M12 2.1a9.7 9.7 0 0 0-8.34 14.65L2.4 21.6l5-1.23A9.8 9.8 0 1 0 12 2.1Zm0 17.65a7.8 7.8 0 0 1-3.98-1.09l-.29-.17-2.97.73.76-2.9-.19-.3A7.82 7.82 0 1 1 12 19.75Zm4.3-5.86c-.23-.12-1.38-.68-1.6-.76-.22-.08-.37-.12-.53.12-.15.23-.6.76-.74.91-.14.16-.27.18-.5.06-.23-.12-.99-.37-1.89-1.17-.7-.63-1.17-1.4-1.31-1.64-.14-.23-.01-.36.1-.48.1-.1.23-.27.34-.4.11-.13.15-.23.23-.39.08-.15.04-.29-.02-.4-.06-.12-.53-1.27-.72-1.74-.19-.46-.38-.4-.52-.4h-.45c-.15 0-.4.06-.61.29-.21.23-.8.78-.8 1.9s.82 2.2.93 2.35c.11.15 1.62 2.48 3.92 3.47.55.24.98.39 1.31.5.55.17 1.05.15 1.45.09.44-.07 1.38-.56 1.57-1.1.19-.54.19-1 .13-1.1-.05-.1-.2-.16-.43-.28Z"/>
+            </svg>
+            تواصل عبر واتساب
+          </a>
+        </div>
+      </form>
+    </section>
+
+    <div class="app-shell" id="app-shell" hidden>
+      <aside class="sidebar">
+        <a class="brand" href="#" aria-label="مزرعة المالك - الرئيسية">
+          <img class="brand-mark brand-logo" src="assets/farm-logo.png" alt="" />
+          <span><strong>المالك</strong><small>مزرعة دواجن</small></span>
+        </a>
+
+        <div class="sidebar-label">القائمة الرئيسية</div>
+        <nav class="main-nav" aria-label="القائمة الرئيسية">
+          <button class="nav-link active" type="button" data-page="farm-page">
+            <span class="nav-icon" aria-hidden="true">⌂</span>
+            <span>متابعة المزرعة</span>
+          </button>
+          <button class="nav-link" type="button" data-page="workers-page">
+            <span class="nav-icon" aria-hidden="true">♙</span>
+            <span>العمال</span>
+          </button>
+          <button class="nav-link" type="button" data-page="invoices-page">
+            <span class="nav-icon" aria-hidden="true">◷</span>
+            <span>فواتير العلف</span>
+          </button>
+          <button class="nav-link" type="button" data-page="electricity-page">
+            <span class="nav-icon" aria-hidden="true">▦</span>
+            <span>الكهرباء</span>
+          </button>
+          <button class="nav-link" type="button" data-page="treatment-page">
+            <span class="nav-icon" aria-hidden="true">✚</span>
+            <span>العلاج</span>
+          </button>
+          <button class="nav-link" type="button" data-page="gas-page">
+            <span class="nav-icon" aria-hidden="true">♨</span>
+            <span>أنابيب الغاز</span>
+          </button>
+          <button class="nav-link" type="button" data-page="expenses-page">
+            <span class="nav-icon" aria-hidden="true">＋</span>
+            <span>مصاريف إضافية</span>
+          </button>
+          <button class="nav-link" type="button" data-page="traders-page">
+            <span class="nav-icon" aria-hidden="true">▤</span>
+            <span>حسابات التجار</span>
+          </button>
+        </nav>
+
+        <div class="sidebar-note">
+          <span class="note-icon" aria-hidden="true">✳</span>
+          <strong>كل تفاصيل مزرعتك</strong>
+          <p>سجّل بياناتك اليومية وتابع حسابات التجار بسهولة.</p>
+        </div>
+        <div class="sidebar-footer"><span class="status-dot"></span><span id="server-status">جارٍ الاتصال بالخادم...</span></div>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar">
+          <div class="breadcrumb"><span>الرئيسية</span><span class="crumb-separator">/</span><strong id="breadcrumb-current">متابعة المزرعة</strong></div>
+          <div class="topbar-actions">
+            <div class="topbar-date"><span class="calendar-icon" aria-hidden="true">▦</span><span id="today-label"></span></div>
+            <button class="logout-button" id="logout-button" type="button">تسجيل الخروج</button>
+          </div>
+        </header>
+
+        <section id="farm-page" class="page active" aria-labelledby="farm-title">
+          <div class="page-heading">
+            <div>
+              <div class="eyebrow"><span class="eyebrow-line"></span> السجل اليومي للدورة</div>
+              <h1 id="farm-title">متابعة المزرعة — ٤٢ يوم</h1>
+              <p>جدول يومي لمتابعة شكاير العلف والنافق ودرجة الحرارة خلال الدورة.</p>
+            </div>
+            <button class="button button-secondary" type="button" id="farm-print"><span aria-hidden="true">⎙</span> طباعة الجدول</button>
+          </div>
+          <section class="panel cycle-start-panel" aria-labelledby="entry-title">
+            <div class="panel-heading">
+              <div class="section-title">
+                <span class="section-icon" aria-hidden="true">🐣</span>
+                <div><h2 id="entry-title">بداية دورة الكتاكيت</h2><p>حدد تاريخ الدخول عشان يتحسب تاريخ كل يوم وعمر الكتكوت تلقائيًا.</p></div>
+              </div>
+              <strong class="current-age" id="current-age">العمر: —</strong>
+            </div>
+            <form id="farm-form" class="cycle-start-form">
+              <label class="field"><span>تاريخ دخول الكتاكيت <span class="required">*</span></span><input type="date" name="date" id="record-date" required /></label>
+              <label class="field"><span>عدد الكتاكيت الداخلة <span class="required">*</span></span><span class="input-wrap"><input type="number" name="chicks" min="1" step="1" placeholder="مثال: 5000" required /><span class="input-suffix">كتكوت</span></span></label>
+              <label class="field"><span>عدد العمال</span><span class="input-wrap"><input type="number" name="workers" min="0" step="1" placeholder="مثال: 4" /><span class="input-suffix">عامل</span></span></label>
+              <button class="button button-primary" type="submit"><span aria-hidden="true">✓</span> حفظ بيانات الدورة</button>
+            </form>
+            <p class="form-message" id="farm-message" role="status" aria-live="polite"></p>
+          </section>
+          <div class="daily-table-card panel">
+            <div class="panel-heading">
+              <div class="section-title">
+                <span class="section-icon section-icon-soft" aria-hidden="true">▤</span>
+                <div><h2>جدول المتابعة اليومية</h2><p id="cycle-subtitle">٤٢ يومًا بالتواريخ بدءًا من يوم دخول الكتاكيت.</p></div>
+              </div>
+              <button class="button button-primary" type="button" id="save-daily-table"><span aria-hidden="true">✓</span> حفظ الجدول</button>
+            </div>
+            <p class="form-message" id="daily-message" role="status" aria-live="polite"></p>
+            <div class="table-wrap cycle-table-wrap">
+              <table class="data-table cycle-table">
+                <thead><tr><th>اليوم</th><th>التاريخ</th><th>شكاير العلف</th><th>النافق</th><th>الحرارة (°م)</th></tr></thead>
+                <tbody id="daily-table-body"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section id="workers-page" class="page" aria-labelledby="workers-title" hidden>
+          <div class="page-heading">
+            <div>
+              <div class="eyebrow"><span class="eyebrow-line"></span> الحضور والمستحقات</div>
+              <h1 id="workers-title">سجل العمال</h1>
+              <p>سجّل حضور وغياب العمال والسلف والإجازات حسب التاريخ.</p>
+            </div>
+            <button class="button button-secondary" type="button" data-print-page><span aria-hidden="true">⎙</span> طباعة السجل</button>
+          </div>
+          <section class="panel invoice-form-panel" aria-labelledby="worker-form-title">
+            <div class="panel-heading">
+              <div class="section-title">
+                <span class="section-icon section-icon-green" aria-hidden="true">♙</span>
+                <div><h2 id="worker-form-title">إضافة سجل عامل</h2><p>اختار العامل والتاريخ وسجّل حالته والسلفة أو الإجازة.</p></div>
+              </div>
+            </div>
+            <form id="worker-record-form" class="worker-record-form">
+              <label class="field"><span>اسم العامل <span class="required">*</span></span>
+                <select name="worker" required>
+                  <option value="أبو رودينا">أبو رودينا</option>
+                  <option value="عبد الرحمن">عبد الرحمن</option>
+                  <option value="محمد">محمد</option>
+                </select>
+              </label>
+              <label class="field"><span>التاريخ <span class="required">*</span></span><input type="date" name="date" required /></label>
+              <label class="field"><span>الحضور والغياب <span class="required">*</span></span>
+                <select name="attendance" required>
+                  <option value="حضور">حضور</option>
+                  <option value="غياب">غياب</option>
+                </select>
+              </label>
+              <label class="field"><span>السلفة (جنيه)</span><input type="number" name="advance" min="0" step="0.01" placeholder="٠٫٠٠" /></label>
+              <label class="field"><span>الإجازات (يوم)</span><input type="number" name="leaveDays" min="0" step="1" placeholder="عدد الأيام" /></label>
+              <label class="field"><span>ملاحظات</span><input type="text" name="notes" maxlength="160" placeholder="اختياري" /></label>
+              <button class="button button-primary" type="submit"><span aria-hidden="true">＋</span> حفظ السجل</button>
+            </form>
+            <p class="form-message" id="worker-record-message" role="status" aria-live="polite"></p>
+          </section>
+          <section class="panel invoice-list-panel">
+            <div class="panel-heading">
+              <div class="section-title">
+                <span class="section-icon section-icon-soft" aria-hidden="true">▤</span>
+                <div><h2>سجل حضور العمال</h2><p>كل سجل محفوظ بتاريخ العامل ويمكن مراجعته أو حذفه.</p></div>
+              </div>
+              <span class="record-count" id="worker-record-count">٠ سجل</span>
+            </div>
+            <div class="table-wrap">
+              <table class="data-table worker-record-table">
+                <thead><tr><th>العامل</th><th>التاريخ</th><th>الحالة</th><th>السلفة</th><th>الإجازات</th><th>ملاحظات</th><th><span class="sr-only">إجراءات</span></th></tr></thead>
+                <tbody id="worker-records"></tbody>
+              </table>
+              <div class="empty-state" id="worker-records-empty"><span class="empty-icon" aria-hidden="true">♙</span><strong>لسه مفيش سجلات للعمال</strong><p>أضف سجل حضور أو غياب أو سلفة أو إجازة.</p></div>
+            </div>
+            <div class="gas-totals worker-totals"><span>إجمالي السلف: <strong id="worker-advance-total">٠٫٠٠</strong> جنيه</span><span>إجمالي أيام الإجازة: <strong id="worker-leave-total">٠</strong> يوم</span></div>
+          </section>
+        </section>
+
+        <section id="traders-page" class="page" aria-labelledby="traders-title" hidden>
+          <div class="page-heading">
+            <div>
+              <div class="eyebrow"><span class="eyebrow-line"></span> الحسابات والمعاملات</div>
+              <h1 id="traders-title">حسابات التجار</h1>
+              <p>سجّل بيانات ما يصل إلى ٧٠ تاجرًا وتابع الحسابات والإجماليات.</p>
+            </div>
+            <button class="button button-secondary" type="button" id="traders-print"><span aria-hidden="true">⎙</span> طباعة الجدول</button>
+          </div>
+
+          <div class="traders-summary">
+            <div class="summary-mark" aria-hidden="true">♧</div>
+            <div><span>إجمالي المبالغ القائمة</span><strong id="traders-total-card">٠٫٠٠ <small>جنيه</small></strong></div>
+            <span class="summary-decoration" aria-hidden="true">جنيه</span>
+          </div>
+
+          <section class="panel traders-panel" aria-labelledby="traders-table-title">
+            <div class="panel-heading">
+              <div class="section-title">
+                <span class="section-icon section-icon-green" aria-hidden="true">♧</span>
+                <div><h2 id="traders-table-title">حسابات التجار</h2><p>افتح ملف التاجر لتسجيل ٣٠ حركة وتاريخ كل حركة.</p></div>
+              </div>
+              <span class="record-count">٧٠ تاجرًا</span>
+            </div>
+            <form id="traders-form">
+              <div class="trader-search-row">
+                <label class="field"><span>البحث عن تاجر</span><input type="search" id="trader-search" placeholder="اكتب اسم التاجر أو رقمه..." /></label>
+                <span class="form-tip">افتح ملف التاجر لإضافة حركاته</span>
+              </div>
+              <div class="trader-profiles" id="trader-profiles"></div>
+              <div class="trader-grand-total"><span>إجمالي القائم على كل التجار</span><strong id="traders-total-cell">٠٫٠٠ جنيه</strong><span>إجمالي الحسابات</span><strong id="traders-total-footer">٠٫٠٠ جنيه</strong></div>
+              <div class="form-footer traders-footer">
+                <span class="form-tip"><span aria-hidden="true">ⓘ</span> أدخل بيانات التجار ثم احفظها على الخادم المحلي.</span>
+                <button class="button button-primary" type="submit"><span aria-hidden="true">✓</span> حفظ بيانات التجار</button>
+              </div>
+              <p class="form-message" id="traders-message" role="status" aria-live="polite"></p>
+            </form>
+          </section>
+          <div class="privacy-note"><span aria-hidden="true">◈</span><span><strong>بياناتك في أمان</strong> — كل البيانات محفوظة محليًا على جهازك، ومش بتتبعت لأي مكان.</span></div>
+        </section>
+
+        <section id="invoices-page" class="page" aria-labelledby="invoices-title" hidden>
+          <div class="page-heading">
+            <div>
+              <div class="eyebrow"><span class="eyebrow-line"></span> الفواتير والمرفقات</div>
+              <h1 id="invoices-title">فواتير العلف</h1>
+                  <p>سجّل فواتير العلف بالتاريخ ورقم اليوم وأرفق صورها.</p>
+            </div>
+            <button class="button button-secondary" type="button" id="feed-invoices-print"><span aria-hidden="true">⎙</span> طباعة الفواتير</button>
+          </div>
+          <section class="panel invoice-form-panel" aria-labelledby="invoice-form-title">
+            <div class="panel-heading">
+              <div class="section-title">
+                <span class="section-icon section-icon-green" aria-hidden="true">▧</span>
+                <div><h2 id="invoice-form-title">إضافة فاتورة علف</h2><p>تاريخ اليوم في الدورة يتحسب تلقائيًا.</p></div>
+              </div>
+            </div>
+            <form id="feed-invoice-form" class="invoice-form" data-category="feed">
+              <label class="field"><span>التاريخ <span class="required">*</span></span><input type="date" name="date" required /></label>
+              <label class="field"><span>البيان</span><input type="text" name="item" maxlength="120" placeholder="تفاصيل الفاتورة" /></label>
+              <label class="field"><span>المبلغ (جنيه)</span><input type="number" name="amount" min="0" step="0.01" placeholder="٠٫٠٠" /></label>
+              <label class="field"><span>صورة فاتورة العلف <span class="required">*</span></span><input type="file" name="receipt" accept="image/jpeg,image/png,image/webp" required /></label>
+              <button class="button button-primary" type="submit"><span aria-hidden="true">＋</span> حفظ الفاتورة</button>
+            </form>
+            <p class="form-message" id="invoice-message-feed" data-state="idle" role="status" aria-live="polite"></p>
+          </section>
+          <section class="panel invoice-list-panel" aria-labelledby="invoice-list-title">
+            <div class="panel-heading">
+              <div class="section-title"><span class="section-icon section-icon-soft" aria-hidden="true">▤</span><div><h2 id="invoice-list-title">سجل فواتير العلف</h2><p>فواتير العلف مع اليوم والتاريخ والصورة</p></div></div>
+              <span class="record-count" id="invoice-count-feed">٠ فاتورة</span>
+            </div>
+            <div class="table-wrap">
+              <table class="data-table invoice-table">
+                <thead><tr><th>النوع</th><th>اليوم</th><th>التاريخ</th><th>البيان</th><th>المبلغ</th><th>صورة الفاتورة</th><th><span class="sr-only">إجراءات</span></th></tr></thead>
+                <tbody id="invoice-records-feed"></tbody>
+              </table>
+              <div class="empty-state" id="invoice-empty-feed"><span class="empty-icon" aria-hidden="true">▧</span><strong>لسه مفيش فواتير علف</strong><p>أضف فاتورة وارفع صورتها عشان تظهر هنا.</p></div>
+            </div>
+          </section>
+        </section>
+
+        <section id="electricity-page" class="page" aria-labelledby="electricity-title" hidden>
+          <div class="page-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span> حسابات الكهرباء</div><h1 id="electricity-title">فواتير الكهرباء</h1><p>سجّل كل فاتورة كهرباء بالتاريخ واليوم وأرفق صورتها.</p></div><button class="button button-secondary" type="button" data-print-page><span aria-hidden="true">⎙</span> طباعة الفواتير</button></div>
+          <section class="panel invoice-form-panel" aria-labelledby="electricity-form-title">
+            <div class="panel-heading"><div class="section-title"><span class="section-icon section-icon-green" aria-hidden="true">▦</span><div><h2 id="electricity-form-title">إضافة فاتورة كهرباء</h2><p>رقم يوم الدورة يتحسب تلقائيًا من التاريخ.</p></div></div></div>
+            <form id="electricity-invoice-form" class="invoice-form" data-category="electricity">
+              <label class="field"><span>التاريخ <span class="required">*</span></span><input type="date" name="date" required /></label>
+              <label class="field"><span>البيان</span><input type="text" name="item" maxlength="120" placeholder="شحن كارت / فاتورة" /></label>
+              <label class="field"><span>المبلغ (جنيه)</span><input type="number" name="amount" min="0" step="0.01" placeholder="٠٫٠٠" /></label>
+              <label class="field"><span>صورة فاتورة الكهرباء <span class="required">*</span></span><input type="file" name="receipt" accept="image/jpeg,image/png,image/webp" required /></label>
+              <button class="button button-primary" type="submit"><span aria-hidden="true">＋</span> حفظ الفاتورة</button>
+            </form>
+            <p class="form-message" id="invoice-message-electricity" data-state="idle" role="status" aria-live="polite"></p>
+          </section>
+          <section class="panel invoice-list-panel">
+            <div class="panel-heading"><div class="section-title"><span class="section-icon section-icon-soft" aria-hidden="true">▤</span><div><h2>سجل فواتير الكهرباء</h2><p>التاريخ ورقم اليوم والمبلغ وصورة الفاتورة</p></div></div><span class="record-count" id="invoice-count-electricity">٠ فاتورة</span></div>
+            <div class="table-wrap"><table class="data-table invoice-table"><thead><tr><th>اليوم</th><th>التاريخ</th><th>البيان</th><th>المبلغ</th><th>صورة الفاتورة</th><th><span class="sr-only">إجراءات</span></th></tr></thead><tbody id="invoice-records-electricity"></tbody></table><div class="empty-state" id="invoice-empty-electricity"><span class="empty-icon" aria-hidden="true">▧</span><strong>لسه مفيش فواتير كهرباء</strong><p>أضف فاتورة وارفع صورتها عشان تظهر هنا.</p></div></div>
+          </section>
+        </section>
+
+        <section id="treatment-page" class="page" aria-labelledby="treatment-title" hidden>
+          <div class="page-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span> مصروفات العلاج</div><h1 id="treatment-title">فواتير العلاج</h1><p>سجّل فواتير العلاج والأدوية بالتاريخ واليوم وأرفق صورها.</p></div><button class="button button-secondary" type="button" data-print-page><span aria-hidden="true">⎙</span> طباعة الفواتير</button></div>
+          <section class="panel invoice-form-panel" aria-labelledby="treatment-form-title">
+            <div class="panel-heading"><div class="section-title"><span class="section-icon section-icon-green" aria-hidden="true">✚</span><div><h2 id="treatment-form-title">إضافة فاتورة علاج</h2><p>رقم يوم الدورة يتحسب تلقائيًا من التاريخ.</p></div></div></div>
+            <form id="treatment-invoice-form" class="invoice-form" data-category="treatment">
+              <label class="field"><span>التاريخ <span class="required">*</span></span><input type="date" name="date" required /></label>
+              <label class="field"><span>البيان</span><input type="text" name="item" maxlength="120" placeholder="اسم العلاج أو الدواء" /></label>
+              <label class="field"><span>المبلغ (جنيه)</span><input type="number" name="amount" min="0" step="0.01" placeholder="٠٫٠٠" /></label>
+              <label class="field"><span>صورة فاتورة العلاج <span class="required">*</span></span><input type="file" name="receipt" accept="image/jpeg,image/png,image/webp" required /></label>
+              <button class="button button-primary" type="submit"><span aria-hidden="true">＋</span> حفظ الفاتورة</button>
+            </form>
+            <p class="form-message" id="invoice-message-treatment" data-state="idle" role="status" aria-live="polite"></p>
+          </section>
+          <section class="panel invoice-list-panel">
+            <div class="panel-heading"><div class="section-title"><span class="section-icon section-icon-soft" aria-hidden="true">▤</span><div><h2>سجل فواتير العلاج</h2><p>التاريخ ورقم اليوم والمبلغ وصورة الفاتورة</p></div></div><span class="record-count" id="invoice-count-treatment">٠ فاتورة</span></div>
+            <div class="table-wrap"><table class="data-table invoice-table"><thead><tr><th>اليوم</th><th>التاريخ</th><th>البيان</th><th>المبلغ</th><th>صورة الفاتورة</th><th><span class="sr-only">إجراءات</span></th></tr></thead><tbody id="invoice-records-treatment"></tbody></table><div class="empty-state" id="invoice-empty-treatment"><span class="empty-icon" aria-hidden="true">▧</span><strong>لسه مفيش فواتير علاج</strong><p>أضف فاتورة وارفع صورتها عشان تظهر هنا.</p></div></div>
+          </section>
+        </section>
+
+        <section id="gas-page" class="page" aria-labelledby="gas-title" hidden>
+          <div class="page-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span> حركة المخزون</div><h1 id="gas-title">أنابيب الغاز</h1><p>سجّل الأنابيب الداخلة والخارجة بالتاريخ ورقم اليوم.</p></div><button class="button button-secondary" type="button" data-print-page><span aria-hidden="true">⎙</span> طباعة السجل</button></div>
+          <section class="panel invoice-form-panel">
+            <div class="panel-heading"><div class="section-title"><span class="section-icon section-icon-green" aria-hidden="true">♨</span><div><h2>إضافة حركة أنابيب</h2><p>مفيش حد لعدد الحركات؛ كل حركة بتاريخها وعددها.</p></div></div></div>
+            <form id="gas-form" class="gas-form">
+              <label class="field"><span>التاريخ <span class="required">*</span></span><input type="date" name="date" required /></label>
+              <label class="field"><span>الأنابيب الداخلة</span><span class="input-wrap"><input type="number" name="incoming" min="0" step="1" value="0" /><span class="input-suffix">أنبوبة</span></span></label>
+              <label class="field"><span>الأنابيب الخارجة</span><span class="input-wrap"><input type="number" name="outgoing" min="0" step="1" value="0" /><span class="input-suffix">أنبوبة</span></span></label>
+              <label class="field"><span>ملاحظات</span><input type="text" name="notes" maxlength="160" placeholder="اختياري" /></label>
+              <button class="button button-primary" type="submit"><span aria-hidden="true">＋</span> إضافة حركة</button>
+            </form>
+            <p class="form-message" id="gas-message" role="status" aria-live="polite"></p>
+          </section>
+          <div class="gas-totals"><span>إجمالي الداخل: <strong id="gas-in-total">٠</strong> أنبوبة</span><span>إجمالي الخارج: <strong id="gas-out-total">٠</strong> أنبوبة</span></div>
+          <section class="panel invoice-list-panel">
+            <div class="panel-heading"><div class="section-title"><span class="section-icon section-icon-soft" aria-hidden="true">▤</span><div><h2>سجل حركة الأنابيب</h2><p>عدد الأنابيب الواردة والصادرة حسب اليوم</p></div></div></div>
+            <div class="table-wrap"><table class="data-table gas-table"><thead><tr><th>التاريخ</th><th>اليوم</th><th>الأنابيب الداخلة</th><th>الأنابيب الخارجة</th><th>ملاحظات</th><th><span class="sr-only">إجراءات</span></th></tr></thead><tbody id="gas-records"></tbody></table><div class="empty-state" id="gas-empty"><span class="empty-icon" aria-hidden="true">♨</span><strong>مفيش حركات غاز لسه</strong><p>أضف عدد الأنابيب الداخلة والخارجة وتاريخ الحركة.</p></div></div>
+          </section>
+        </section>
+
+        <section id="expenses-page" class="page" aria-labelledby="expenses-title" hidden>
+          <div class="page-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span> مصاريف مرنة</div><h1 id="expenses-title">مصاريف إضافية</h1><p>اكتب نوع المصروف والتفاصيل اللي تحتاجها، وأضف سجلات بدون حد.</p></div><button class="button button-secondary" type="button" data-print-page><span aria-hidden="true">⎙</span> طباعة المصاريف</button></div>
+          <div class="traders-summary">
+            <div class="summary-mark" aria-hidden="true">＋</div>
+            <div><span>إجمالي المصاريف الإضافية</span><strong id="expenses-total-card">٠٫٠٠ جنيه</strong></div>
+            <span class="summary-decoration" aria-hidden="true">جنيه</span>
+          </div>
+          <section class="panel invoice-form-panel" aria-labelledby="expense-form-title">
+            <div class="panel-heading"><div class="section-title"><span class="section-icon section-icon-green" aria-hidden="true">✎</span><div><h2 id="expense-form-title">إضافة مصروف</h2><p>اكتب اسم المصروف وأي تفاصيل تناسب احتياجك.</p></div></div></div>
+            <form id="expense-form" class="expense-form">
+              <label class="field"><span>التاريخ <span class="required">*</span></span><input type="date" name="date" required /></label>
+              <label class="field"><span>اسم المصروف <span class="required">*</span></span><input type="text" name="item" maxlength="120" placeholder="مثال: صيانة أو نقل أو مستلزمات" required /></label>
+              <label class="field"><span>المبلغ (جنيه)</span><input type="number" name="amount" min="0" step="0.01" placeholder="٠٫٠٠" /></label>
+              <label class="field expense-notes"><span>التفاصيل / ملاحظات</span><input type="text" name="notes" maxlength="300" placeholder="اكتب التفاصيل اللي عايز تحتفظ بيها..." /></label>
+              <button class="button button-primary" type="submit"><span aria-hidden="true">＋</span> إضافة المصروف</button>
+            </form>
+            <p class="form-message" id="expense-message" role="status" aria-live="polite"></p>
+          </section>
+          <section class="panel invoice-list-panel">
+            <div class="panel-heading"><div class="section-title"><span class="section-icon section-icon-soft" aria-hidden="true">▤</span><div><h2>سجل المصاريف الإضافية</h2><p>كل المصاريف اللي سجلتها وتفاصيلها</p></div></div><span class="record-count" id="expense-count">٠ مصروف</span></div>
+            <div class="table-wrap"><table class="data-table expense-table"><thead><tr><th>التاريخ</th><th>اسم المصروف</th><th>التفاصيل</th><th>المبلغ</th><th><span class="sr-only">إجراءات</span></th></tr></thead><tbody id="expense-records"></tbody></table><div class="empty-state" id="expense-empty"><span class="empty-icon" aria-hidden="true">＋</span><strong>لسه مفيش مصاريف</strong><p>اكتب أي مصروف إضافي تحتاجه واحفظه هنا.</p></div></div>
+          </section>
+        </section>
+
+        <footer class="page-footer"><span>مزرعة المالك <span class="footer-dot">·</span> إدارة أذكى لمزرعتك</span><span>تم إنشاؤه بواسطة Eng Belal wahid</span></footer>
+      </main>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
